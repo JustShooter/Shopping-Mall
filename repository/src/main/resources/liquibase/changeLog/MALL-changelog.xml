@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="MALL-1" author="JustShooter">
+        <createTable tableName="address">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_address"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="street_type" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="building_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="office_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-2" author="JustShooter">
+        <createTable tableName="discount">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_discount"/>
+            </column>
+            <column name="discount_percentage" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-3" author="JustShooter">
+        <createTable tableName="discount_shops">
+            <column name="discount_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_discount_shops"/>
+            </column>
+            <column name="shops_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_discount_shops"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-4" author="JustShooter">
+        <createTable tableName="item">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_item"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="article" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="barcode" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-5" author="JustShooter">
+        <createTable tableName="item_discounts">
+            <column name="discounts_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_item_discounts"/>
+            </column>
+            <column name="item_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_item_discounts"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-6" author="JustShooter">
+        <createTable tableName="location">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_location"/>
+            </column>
+            <column name="shop_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="floor" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-7" author="JustShooter">
+        <createTable tableName="price">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_price"/>
+            </column>
+            <column name="price_value" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="item_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-8" author="JustShooter">
+        <createTable tableName="price_shops">
+            <column name="price_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_price_shops"/>
+            </column>
+            <column name="shops_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_price_shops"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-9" author="JustShooter">
+        <createTable tableName="shop">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_shop"/>
+            </column>
+            <column name="shop_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_owner_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-10" author="JustShooter">
+        <createTable tableName="shop_items">
+            <column name="items_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_shop_items"/>
+            </column>
+            <column name="shop_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_shop_items"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-11" author="JustShooter">
+        <createTable tableName="shopowner">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_shopowner"/>
+            </column>
+            <column name="owner_name" type="VARCHAR(255)"/>
+            <column name="address_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="MALL-12" author="JustShooter">
+        <addUniqueConstraint columnNames="article" constraintName="uc_item_article" tableName="item"/>
+    </changeSet>
+    <changeSet id="MALL-13" author="JustShooter">
+        <addUniqueConstraint columnNames="barcode" constraintName="uc_item_barcode" tableName="item"/>
+    </changeSet>
+    <changeSet id="MALL-14" author="JustShooter">
+        <addUniqueConstraint columnNames="shop_number" constraintName="uc_location_shop_number" tableName="location"/>
+    </changeSet>
+    <changeSet id="MALL-15" author="JustShooter">
+        <addUniqueConstraint columnNames="location_id" constraintName="uc_shop_location" tableName="shop"/>
+    </changeSet>
+    <changeSet id="MALL-16" author="JustShooter">
+        <addUniqueConstraint columnNames="address_id" constraintName="uc_shopowner_address" tableName="shopowner"/>
+    </changeSet>
+    <changeSet id="MALL-17" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="price" constraintName="FK_PRICE_ON_ITEM"
+                                 referencedColumnNames="id" referencedTableName="item"/>
+    </changeSet>
+    <changeSet id="MALL-18" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="shopowner"
+                                 constraintName="FK_SHOPOWNER_ON_ADDRESS" referencedColumnNames="id"
+                                 referencedTableName="address"/>
+    </changeSet>
+    <changeSet id="MALL-19" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="shop" constraintName="FK_SHOP_ON_LOCATION"
+                                 referencedColumnNames="id" referencedTableName="location"/>
+    </changeSet>
+    <changeSet id="MALL-20" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="shop_owner_id" baseTableName="shop"
+                                 constraintName="FK_SHOP_ON_SHOP_OWNER" referencedColumnNames="id"
+                                 referencedTableName="shopowner"/>
+    </changeSet>
+    <changeSet id="MALL-21" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="discount_id" baseTableName="discount_shops"
+                                 constraintName="fk_dissho_on_discount" referencedColumnNames="id"
+                                 referencedTableName="discount"/>
+    </changeSet>
+    <changeSet id="MALL-22" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="shops_id" baseTableName="discount_shops"
+                                 constraintName="fk_dissho_on_shop" referencedColumnNames="id"
+                                 referencedTableName="shop"/>
+    </changeSet>
+    <changeSet id="MALL-23" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="discounts_id" baseTableName="item_discounts"
+                                 constraintName="fk_itedis_on_discount" referencedColumnNames="id"
+                                 referencedTableName="discount"/>
+    </changeSet>
+    <changeSet id="MALL-24" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="item_discounts"
+                                 constraintName="fk_itedis_on_item" referencedColumnNames="id"
+                                 referencedTableName="item"/>
+    </changeSet>
+    <changeSet id="MALL-25" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="price_id" baseTableName="price_shops"
+                                 constraintName="fk_prisho_on_price" referencedColumnNames="id"
+                                 referencedTableName="price"/>
+    </changeSet>
+    <changeSet id="MALL-26" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="shops_id" baseTableName="price_shops"
+                                 constraintName="fk_prisho_on_shop" referencedColumnNames="id"
+                                 referencedTableName="shop"/>
+    </changeSet>
+    <changeSet id="MALL-27" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="items_id" baseTableName="shop_items"
+                                 constraintName="fk_shoite_on_item" referencedColumnNames="id"
+                                 referencedTableName="item"/>
+    </changeSet>
+    <changeSet id="MALL-28" author="JustShooter">
+        <addForeignKeyConstraint baseColumnNames="shop_id" baseTableName="shop_items" constraintName="fk_shoite_on_shop"
+                                 referencedColumnNames="id" referencedTableName="shop"/>
+    </changeSet>
+
+</databaseChangeLog>
