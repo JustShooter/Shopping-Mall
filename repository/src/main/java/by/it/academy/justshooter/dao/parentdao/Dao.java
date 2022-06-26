@@ -1,28 +1,28 @@
 package by.it.academy.justshooter.dao.parentdao;
 
+import by.it.academy.justshooter.dao.exception.NoDataFoundById;
 import by.it.academy.justshooter.dao.interfaces.DaoInterface;
 import by.it.academy.justshooter.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
-import java.sql.SQLException;
 import java.util.List;
 
-public class Dao<T> implements DaoInterface<T> {
+public abstract class Dao<T> implements DaoInterface<T> {
     private final Class<T> entityClass;
-    private final EntityManager entityManager;
+    protected final EntityManager entityManager;
 
 
-    public Dao(Class<T> incomingClass) {
+    protected Dao(Class<T> incomingClass) {
         this.entityClass = incomingClass;
-        this.entityManager = HibernateUtil.getEntityManager();
+        entityManager = HibernateUtil.getEntityManager();
     }
 
 
     @Override
-    public T findOne(final Object id) throws SQLException {
+    public T findOne(final Object id) throws NoDataFoundById {
         T entity = entityManager.find(entityClass, id);
         if(entity==null){
-            throw new SQLException("No such id found!");
+            throw new NoDataFoundById("No such id found!");
         }
         return entity;
     }
@@ -30,7 +30,7 @@ public class Dao<T> implements DaoInterface<T> {
     @Override
     @SuppressWarnings("unchecked")
     public List<T> findAll() {
-        return entityManager.createQuery("from " + entityClass.getName()).getResultList();
+        return (List<T>) entityManager.createQuery("from " + entityClass.getName()).getResultList();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class Dao<T> implements DaoInterface<T> {
     }
 
     @Override
-    public void deleteById(final Integer entityId) throws SQLException {
+    public void deleteById(final Integer entityId) throws NoDataFoundById {
         final T entity = findOne(entityId);
         delete(entity);
     }

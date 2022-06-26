@@ -25,15 +25,19 @@ public class Price {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "price_value", nullable = false)
+    @Column(name = "price_value", nullable = false, unique = true)
     private Double priceValue;
 
     @Builder.Default
+    @OneToMany(mappedBy = "price", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private Set<ShopItemPriceDiscount> shopItemPriceDiscounts = new LinkedHashSet<>();
+
+    /*@Builder.Default
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(name = "price_shops",
             joinColumns = @JoinColumn(name = "price_id"),
             inverseJoinColumns = @JoinColumn(name = "shops_id"))
-    private Set<Shop> shops = new LinkedHashSet<>();
+    private Set<Shop> shops = new LinkedHashSet<>();*/
 
 
     @Override

@@ -28,15 +28,19 @@ public class Shop {
     @Column(name = "shop_name", nullable = false)
     private String shopName;
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
     @JoinColumn(name = "location_id", nullable = false, unique = true)
     private Location location;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "shop_owner_id", nullable = false)
     private ShopOwner shopOwner;
 
     @Builder.Default
+    @OneToMany(mappedBy = "shop", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private Set<ShopItemPriceDiscount> shopItemPriceDiscounts = new LinkedHashSet<>();
+
+    /*@Builder.Default
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "shop_items",
             joinColumns = @JoinColumn(name = "shop_id", referencedColumnName = "id"),
@@ -45,7 +49,7 @@ public class Shop {
 
     @Builder.Default
     @ManyToMany(mappedBy = "shops", cascade = CascadeType.ALL)
-    private Set<Discount> discounts = new LinkedHashSet<>();
+    private Set<Discount> discounts = new LinkedHashSet<>();*/
 
 
     @Override

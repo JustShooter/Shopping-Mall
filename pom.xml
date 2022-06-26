@@ -11,6 +11,7 @@
     <modules>
         <module>repository</module>
         <module>service</module>
+        <module>controller</module>
     </modules>
 
     <properties>
@@ -20,6 +21,16 @@
         <checkstyle.version>10.2</checkstyle.version>
         <junit.version>4.13.2</junit.version>
         <jacoco.version>0.8.7</jacoco.version>
+        <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+        <hibernate.version>5.6.7.Final</hibernate.version>
+        <lombok.version>1.18.24</lombok.version>
+        <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
+        <liquibase.version>4.9.0</liquibase.version>
+        <h2.version>2.1.212</h2.version>
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <tomcat-jsp-api.version>10.0.20</tomcat-jsp-api.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
     </properties>
 
     <dependencies>
@@ -46,7 +57,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>${maven-checkstyle-plugin.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
