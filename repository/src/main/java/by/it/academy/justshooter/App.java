@@ -121,13 +121,13 @@ public class App {
         Item item1 = Item.builder()
                 .name("Ботинки детские")
                 .article("46804A")
-                .barcode(691001158136L)
+                .barcode("691001158136L")
                 .build();
 
         Item item2 = Item.builder()
                 .name("Подростковая байка")
                 .article("25192B")
-                .barcode(481058267813L)
+                .barcode("481058267813L")
                 .build();
 
         Price price1 = Price.builder()

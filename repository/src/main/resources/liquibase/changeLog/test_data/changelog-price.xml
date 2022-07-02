@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="7-price" author="JustShooter">
+        <comment>Add data to price table</comment>
+
+        <insert tableName="price">
+            <column name="id" value="1"/>
+            <column name="price_value" value="0.99"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="2"/>
+            <column name="price_value" value="9.39"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="3"/>
+            <column name="price_value" value="10.66"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="4"/>
+            <column name="price_value" value="13.71"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="5"/>
+            <column name="price_value" value="16.97"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="6"/>
+            <column name="price_value" value="20.14"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="7"/>
+            <column name="price_value" value="23.67"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="8"/>
+            <column name="price_value" value="27.09"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="9"/>
+            <column name="price_value" value="34.1"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="10"/>
+            <column name="price_value" value="36.35"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="11"/>
+            <column name="price_value" value="42.18"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="12"/>
+            <column name="price_value" value="50.58"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="13"/>
+            <column name="price_value" value="52.2"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="14"/>
+            <column name="price_value" value="58.05"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="15"/>
+            <column name="price_value" value="63.7"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="16"/>
+            <column name="price_value" value="72.8"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="17"/>
+            <column name="price_value" value="73.75"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="18"/>
+            <column name="price_value" value="75.54"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="19"/>
+            <column name="price_value" value="77.21"/>
+        </insert>
+
+        <insert tableName="price">
+            <column name="id" value="20"/>
+            <column name="price_value" value="85.05"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

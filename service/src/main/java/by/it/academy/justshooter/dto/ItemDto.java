@@ -9,5 +9,5 @@ public class ItemDto implements Serializable {
     private final Integer id;
     private final String name;
     private final String article;
-    private final Long barcode;
+    private final String barcode;
 }

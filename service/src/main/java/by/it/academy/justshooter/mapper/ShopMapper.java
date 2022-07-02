@@ -1,6 +1,7 @@
 package by.it.academy.justshooter.mapper;
 
 import by.it.academy.justshooter.dto.ShopDto;
+import by.it.academy.justshooter.entity.Category;
 import by.it.academy.justshooter.entity.Location;
 import by.it.academy.justshooter.entity.Shop;
 import by.it.academy.justshooter.entity.ShopOwner;
@@ -18,7 +19,13 @@ public class ShopMapper {
                         .orElse(null),
                 Optional.ofNullable(shop.getShopOwner())
                         .map(ShopOwner::getId)
-                        .orElse(null));
+                        .orElse(null),
+                Optional.ofNullable(shop.getCategory())
+                        .map(Category::getId)
+                        .orElse(null),
+                LocationMapper.mapFrom(shop.getLocation()),
+                ShopOwnerMapper.mapFrom(shop.getShopOwner()),
+                CategoryMapper.mapFrom(shop.getCategory()));
     }
 
 }

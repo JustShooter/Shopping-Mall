@@ -10,7 +10,7 @@ public class ItemForShopDto implements Serializable {
     private final Integer id;
     private final String name;
     private final String article;
-    private final Long barcode;
+    private final String barcode;
     private final Double priceValue;
     private final Double discountPercentage;
     private final Date startDate;

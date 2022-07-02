@@ -10,4 +10,8 @@ public class ShopDto implements Serializable {
     private final String shopName;
     private final Integer locationId;
     private final Integer shopOwnerId;
+    private final Integer categoryId;
+    private final LocationDto location;
+    private final ShopOwnerDto shopOwner;
+    private final CategoryDto category;
 }

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class ItemService {
+public class ItemServiceImpl {
 
     private final ItemDao itemDao = new ItemDaoImpl();
     private final PriceDao priceDao = new PriceDaoImpl();

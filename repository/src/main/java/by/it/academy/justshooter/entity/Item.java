@@ -33,8 +33,8 @@ public class Item {
     @Column(name = "article", nullable = false, unique = true)
     private String article;
 
-    @Column(name = "barcode", nullable = false, unique = true)
-    private Long barcode;
+    @Column(name = "barcode", nullable = false, unique = true, length = 13, columnDefinition = "char")
+    private String barcode;
 
     @Builder.Default
     @OneToMany(mappedBy = "item", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)

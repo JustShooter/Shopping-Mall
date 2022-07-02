@@ -5,6 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
     <changeSet id="shopping-mall-1" author="JustShooter" context="init">
         <createTable tableName="address">
             <column autoIncrement="true" name="id" type="INT">
@@ -54,7 +55,7 @@
             <column name="article" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="barcode" type="BIGINT">
+            <column name="barcode" type="CHAR(13)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -175,6 +176,10 @@
         <addForeignKeyConstraint baseColumnNames="shop_owner_id" baseTableName="shop"
                                  constraintName="FK_SHOP_ON_SHOP_OWNER" referencedColumnNames="id"
                                  referencedTableName="shopowner"/>
+    </changeSet>
+    <changeSet id="shopping-mall-22" author="JustShooter" context="init">
+        <addUniqueConstraint tableName="shop_item_price_discount" columnNames="shop_id, item_id, price_id, discount_id"
+                             constraintName="UC_SHOP_ITEM_PRICE_DISCOUNT"/>
     </changeSet>
 
 </databaseChangeLog>

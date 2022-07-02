@@ -5,13 +5,16 @@
              version="2.0">
     <persistence-unit name="shopping-mall">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>by.it.academy.justshooter.entity.Address</class>
-        <class>by.it.academy.justshooter.entity.Discount</class>
+        <class>by.it.academy.justshooter.entity.Shop</class>
         <class>by.it.academy.justshooter.entity.Item</class>
         <class>by.it.academy.justshooter.entity.Location</class>
-        <class>by.it.academy.justshooter.entity.Price</class>
-        <class>by.it.academy.justshooter.entity.Shop</class>
         <class>by.it.academy.justshooter.entity.ShopOwner</class>
+        <class>by.it.academy.justshooter.entity.Address</class>
+        <class>by.it.academy.justshooter.entity.Discount</class>
+        <class>by.it.academy.justshooter.entity.Price</class>
+        <class>by.it.academy.justshooter.entity.ShopItemPriceDiscount</class>
+        <class>by.it.academy.justshooter.entity.ShopItemPriceDiscountId</class>
+        <class>by.it.academy.justshooter.entity.Category</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>

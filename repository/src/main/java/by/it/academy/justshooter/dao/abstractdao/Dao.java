@@ -1,4 +1,4 @@
-package by.it.academy.justshooter.dao.parentdao;
+package by.it.academy.justshooter.dao.abstractdao;
 
 import by.it.academy.justshooter.dao.exception.NoDataFoundById;
 import by.it.academy.justshooter.dao.interfaces.DaoInterface;
@@ -6,6 +6,7 @@ import by.it.academy.justshooter.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class Dao<T> implements DaoInterface<T> {
     private final Class<T> entityClass;
@@ -20,11 +21,9 @@ public abstract class Dao<T> implements DaoInterface<T> {
 
     @Override
     public T findOne(final Object id) throws NoDataFoundById {
-        T entity = entityManager.find(entityClass, id);
-        if(entity==null){
-            throw new NoDataFoundById("No such id found!");
-        }
-        return entity;
+        return Optional
+                .ofNullable(entityManager.find(entityClass, id))
+                .orElseThrow(() -> new NoDataFoundById("No such id found!"));
     }
 
     @Override
@@ -58,8 +57,12 @@ public abstract class Dao<T> implements DaoInterface<T> {
 
     @Override
     public void deleteById(final Integer entityId) throws NoDataFoundById {
-        final T entity = findOne(entityId);
-        delete(entity);
+        entityManager.getTransaction().begin();
+        final T entity = Optional
+                .ofNullable(entityManager.find(entityClass, entityId))
+                .orElseThrow(() -> new NoDataFoundById("No such id found!"));
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
     }
 
     @Override

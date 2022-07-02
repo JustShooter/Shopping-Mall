@@ -40,7 +40,11 @@ public class Shop {
     @OneToMany(mappedBy = "shop", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
     private Set<ShopItemPriceDiscount> shopItemPriceDiscounts = new LinkedHashSet<>();
 
-    /*@Builder.Default
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+/*@Builder.Default
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "shop_items",
             joinColumns = @JoinColumn(name = "shop_id", referencedColumnName = "id"),

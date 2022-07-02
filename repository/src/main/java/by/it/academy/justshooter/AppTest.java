@@ -1,22 +1,22 @@
 package by.it.academy.justshooter;
 
-import by.it.academy.justshooter.dao.ItemDaoImpl;
-import by.it.academy.justshooter.dao.LocationDaoImpl;
-import by.it.academy.justshooter.dao.PriceDaoImpl;
+import by.it.academy.justshooter.dao.CategoryDaoImpl;
+import by.it.academy.justshooter.dao.DiscountDaoImpl;
+import by.it.academy.justshooter.dao.ShopDaoImpl;
 import by.it.academy.justshooter.dao.exception.NoDataFoundById;
-import by.it.academy.justshooter.dao.interfaces.ItemDao;
-import by.it.academy.justshooter.dao.interfaces.LocationDao;
-import by.it.academy.justshooter.dao.interfaces.PriceDao;
-import by.it.academy.justshooter.entity.Item;
-import by.it.academy.justshooter.entity.Price;
-import by.it.academy.justshooter.util.HibernateUtil;
+import by.it.academy.justshooter.dao.interfaces.CategoryDao;
+import by.it.academy.justshooter.dao.interfaces.DiscountDao;
+import by.it.academy.justshooter.dao.interfaces.ShopDao;
+import by.it.academy.justshooter.entity.Category;
+import by.it.academy.justshooter.entity.Discount;
+import by.it.academy.justshooter.entity.Shop;
 
-import javax.persistence.EntityManager;
+import java.sql.Date;
 import java.util.List;
 
 public class AppTest {
     public static void main(String[] args) throws NoDataFoundById {
-        LocationDao locationDao = new LocationDaoImpl();
+     /*   LocationDao locationDao = new LocationDaoImpl();
         ItemDao itemDao = new ItemDaoImpl();
         PriceDao priceDao = new PriceDaoImpl();
 
@@ -25,7 +25,7 @@ public class AppTest {
         itemsOfShop.forEach(System.out::println);
 
         Price priceIfItemForShop = priceDao.getPriceIfItemForShop(1, 1);
-        System.out.println(priceIfItemForShop);
+        System.out.println(priceIfItemForShop);*/
 
         /*Location location = Location.builder()
                 .floor(1)
@@ -38,7 +38,23 @@ public class AppTest {
         locationDao.deleteById(location.getId());
         System.out.println(location.getId());*/
 
+        /*DiscountDao discountDao = new DiscountDaoImpl();
 
+        discountDao.create(Discount.builder()
+                .discountPercentage(10.00)
+                .startDate(Date.valueOf("2022-6-30"))
+                .endDate(Date.valueOf("2022-7-7"))
+                .build());
+        discountDao.deleteById(9);
 
+        discountDao.closeAll();*/
+
+        CategoryDao categoryDao = new CategoryDaoImpl();
+        System.out.println(categoryDao.findAll());
+
+        ShopDao shopDao = new ShopDaoImpl();
+        List<Shop> shopsByCategoryId = shopDao.getShopsByCategoryId(1);
+        System.out.println(shopsByCategoryId);
+        shopDao.closeAll();
     }
 }

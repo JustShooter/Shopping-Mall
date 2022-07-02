@@ -6,7 +6,7 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
 
-    <changeSet id="1-locations" author="JustShooter" context="test-data">
+    <changeSet id="1-locations" author="JustShooter" context="test-data" failOnError="true">
         <comment>Add data to location table</comment>
         <insert tableName="location">
             <column name="id" value="1"/>
@@ -15,7 +15,7 @@
             <column name="shop_number" value="101"/>
         </insert>
         <insert tableName="location">
-            <column name="id">2</column>
+            <column name="id" value="2"/>
             <column name="floor" value="1"/>
             <column name="shop_number" value="102"/>
         </insert>
@@ -37,28 +37,48 @@
         </insert>
         <insert tableName="location">
             <column name="id" value="6"/>
-            <column name="floor" value="2"/>
-            <column name="shop_number" value="201"/>
+            <column name="floor" value="1"/>
+            <column name="shop_number" value="106"/>
         </insert>
         <insert tableName="location">
             <column name="id" value="7"/>
             <column name="floor" value="2"/>
-            <column name="shop_number" value="202"/>
+            <column name="shop_number" value="201"/>
         </insert>
         <insert tableName="location">
             <column name="id" value="8"/>
             <column name="floor" value="2"/>
-            <column name="shop_number" value="203"/>
+            <column name="shop_number" value="202"/>
         </insert>
         <insert tableName="location">
             <column name="id" value="9"/>
             <column name="floor" value="2"/>
-            <column name="shop_number" value="204"/>
+            <column name="shop_number" value="203"/>
         </insert>
         <insert tableName="location">
             <column name="id" value="10"/>
             <column name="floor" value="2"/>
+            <column name="shop_number" value="204"/>
+        </insert>
+        <insert tableName="location">
+            <column name="id" value="11"/>
+            <column name="floor" value="2"/>
             <column name="shop_number" value="205"/>
+        </insert>
+        <insert tableName="location">
+            <column name="id" value="12"/>
+            <column name="floor" value="2"/>
+            <column name="shop_number" value="206"/>
+        </insert>
+        <insert tableName="location">
+            <column name="id" value="13"/>
+            <column name="floor" value="2"/>
+            <column name="shop_number" value="207"/>
+        </insert>
+        <insert tableName="location">
+            <column name="id" value="14"/>
+            <column name="floor" value="1"/>
+            <column name="shop_number" value="107"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

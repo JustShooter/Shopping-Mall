@@ -19,7 +19,7 @@ import by.it.academy.justshooter.entity.Shop;
 import by.it.academy.justshooter.entity.ShopOwner;
 import by.it.academy.justshooter.entity.enums.StreetType;
 
-public class AdminService {
+public class AdminServiceImpl {
     private final LocationDao locationDao = new LocationDaoImpl();
     private final ShopOwnerDao shopOwnerDao = new ShopOwnerDaoImpl();
     private final ShopDao shopDao = new ShopDaoImpl();

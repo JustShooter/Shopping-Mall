@@ -7,10 +7,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.function.ThrowingRunnable;
 import org.junit.runners.MethodSorters;
-
-import java.sql.SQLException;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LocationDaoImplTest {
@@ -29,41 +26,41 @@ public class LocationDaoImplTest {
     @Test
     public void t1_createdAndTakenEntityShouldEqual() throws Exception {
         Location location = locationDao.findOne(MockConstants.ID_1);
-        Assert.assertNotNull("Location is not exist in database",
+        Assert.assertNotNull(MockConstants.LOCATION_IS_NOT_EXIST_IN_DATABASE,
                 location);
-        Assert.assertEquals("Id is not equals",
+        Assert.assertEquals(MockConstants.ID_IS_NOT_EQUALS,
                 MockConstants.ID_1, location.getId());
-        Assert.assertEquals("Description is not equals",
+        Assert.assertEquals(MockConstants.DESCRIPTION_IS_NOT_EQUALS,
                 MockConstants.DESCRIPTION, location.getDescription());
-        Assert.assertEquals("Floor not equals",
+        Assert.assertEquals(MockConstants.FLOOR_NOT_EQUALS,
                 MockConstants.FLOOR, location.getFloor());
-        Assert.assertEquals("Shop number is not equals",
+        Assert.assertEquals(MockConstants.SHOP_NUMBER_IS_NOT_EQUALS,
                 MockConstants.SHOP_NUMBER_100, location.getShopNumber());
-        Assert.assertNull("Some how shop appears in location, that wired...",
+        Assert.assertNull(MockConstants.SOME_HOW_SHOP_APPEARS_IN_LOCATION_THAT_WIRED,
                 location.getShop());
     }
 
     @Test
     public void t2_updateAndCheckIncomingEntry() throws Exception {
         Location location = locationDao.findOne(MockConstants.ID_1);
-        Assert.assertNotNull("Location is not exist in database",
+        Assert.assertNotNull(MockConstants.LOCATION_IS_NOT_EXIST_IN_DATABASE,
                 location);
-        Assert.assertNull("Some how shop appears in location, that wired...",
+        Assert.assertNull(MockConstants.SOME_HOW_SHOP_APPEARS_IN_LOCATION_THAT_WIRED,
                 location.getShop());
         location.setDescription(MockConstants.ANOTHER_DESCRIPTION);
         locationDao.update(location);
         Location updatedLocation = locationDao.findOne(MockConstants.ID_1);
-        Assert.assertNotNull("Location is not exist in database",
+        Assert.assertNotNull(MockConstants.LOCATION_IS_NOT_EXIST_IN_DATABASE,
                 updatedLocation);
-        Assert.assertEquals("Id is not equals",
+        Assert.assertEquals(MockConstants.ID_IS_NOT_EQUALS,
                 location.getId(), updatedLocation.getId());
-        Assert.assertEquals("Description is not equals",
+        Assert.assertEquals(MockConstants.DESCRIPTION_IS_NOT_EQUALS,
                 location.getDescription(), updatedLocation.getDescription());
-        Assert.assertEquals("Floor not equals",
+        Assert.assertEquals(MockConstants.FLOOR_NOT_EQUALS,
                 location.getFloor(), updatedLocation.getFloor());
-        Assert.assertEquals("Shop number is not equals",
+        Assert.assertEquals(MockConstants.SHOP_NUMBER_IS_NOT_EQUALS,
                 location.getShopNumber(), updatedLocation.getShopNumber());
-        Assert.assertNull("Some how shop appears in location, that wired...",
+        Assert.assertNull(MockConstants.SOME_HOW_SHOP_APPEARS_IN_LOCATION_THAT_WIRED,
                 updatedLocation.getShop());
     }
 
@@ -74,10 +71,10 @@ public class LocationDaoImplTest {
                 .shopNumber(MockConstants.SHOP_NUMBER_101)
                 .description(MockConstants.ANOTHER_DESCRIPTION)
                 .build();
-        Assert.assertNotEquals("ID should be created after persist",
+        Assert.assertNotEquals(MockConstants.ID_SHOULD_BE_CREATED_AFTER_PERSIST,
                 MockConstants.ZERO, locationEntity.getId());
         locationDao.create(locationEntity);
-        Assert.assertEquals("Id should be 2",MockConstants.ID_2 , locationEntity.getId());
+        Assert.assertEquals(MockConstants.ID_SHOULD_BE_2,MockConstants.ID_2 , locationEntity.getId());
     }
 
     @Test
@@ -87,7 +84,7 @@ public class LocationDaoImplTest {
         NoDataFoundById thrown =
                 Assert.assertThrows(NoDataFoundById.class ,
                         () -> locationDao.findOne(locationId2.getId()));
-        Assert.assertTrue(thrown.getMessage().contains("No such id found!"));
+        Assert.assertTrue(thrown.getMessage().contains(MockConstants.NO_SUCH_ID_FOUND));
     }
 
     @Test
@@ -96,17 +93,17 @@ public class LocationDaoImplTest {
         NoDataFoundById thrown =
                 Assert.assertThrows(NoDataFoundById.class,
                         () -> locationDao.deleteById(MockConstants.ID_1));
-        Assert.assertTrue(thrown.getMessage().contains("No such id found!"));
+        Assert.assertTrue(thrown.getMessage().contains(MockConstants.NO_SUCH_ID_FOUND));
     }
 
     @Test(expected = NoDataFoundById.class)
     public void t5_shouldThrowExceptionIfTryToReadNotExistedDBEntry() throws Exception {
         Location location = locationDao.findOne(MockConstants.NOT_EXISTED_ID);
-        Assert.fail("Apparently this should not happen");
+        Assert.fail(MockConstants.APPARENTLY_THIS_SHOULD_NOT_HAPPEN);
     }
 
     @Test(expected = IllegalStateException.class)
-    public void t6_ShouldThrowExceptionAfterClosingEntityManager() throws SQLException {
+    public void t6_ShouldThrowExceptionAfterClosingEntityManager() {
         locationDao.closeAll();
         locationDao.findAll();
         Assert.fail("Mistake! Exception: " + IllegalStateException.class.getSimpleName() + " not thrown!");

@@ -14,6 +14,7 @@
         <class>by.it.academy.justshooter.entity.Price</class>
         <class>by.it.academy.justshooter.entity.ShopItemPriceDiscount</class>
         <class>by.it.academy.justshooter.entity.ShopItemPriceDiscountId</class>
+        <class>by.it.academy.justshooter.entity.Category</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url"
@@ -21,7 +22,7 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="1234"/>
             <property name="hibernate.dialect.storage_engine" value="innodb"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
             <property name="hibernate.use_sql_comments" value="true"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.connection.pool_size" value="10"/>

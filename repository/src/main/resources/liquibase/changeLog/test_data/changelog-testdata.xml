@@ -8,6 +8,11 @@
     <include file="changelog-location.xml" relativeToChangelogFile="true"/>
     <include file="changelog-address.xml" relativeToChangelogFile="true"/>
     <include file="changelog-shopowner.xml" relativeToChangelogFile="true"/>
-
+    <include file="changelog-category.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-shop.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-item.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-price.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-discount.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-connections.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

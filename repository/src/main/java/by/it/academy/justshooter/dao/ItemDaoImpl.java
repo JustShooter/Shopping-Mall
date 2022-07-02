@@ -1,7 +1,7 @@
 package by.it.academy.justshooter.dao;
 
 import by.it.academy.justshooter.dao.interfaces.ItemDao;
-import by.it.academy.justshooter.dao.parentdao.Dao;
+import by.it.academy.justshooter.dao.abstractdao.Dao;
 import by.it.academy.justshooter.entity.Discount;
 import by.it.academy.justshooter.entity.Item;
 

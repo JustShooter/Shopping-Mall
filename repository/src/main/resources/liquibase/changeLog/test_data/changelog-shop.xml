@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="5-shop" author="JustShooter" context="test-data">
+        <comment>Add data to shop table</comment>
+        <insert tableName="shop">
+            <column name="id" value="1"/>
+            <column name="shop_name" value="Магазин Первый"/>
+            <column name="location_id" value="1"/>
+            <column name="shop_owner_id" value="1"/>
+            <column name="category_id" value="1"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="2"/>
+            <column name="shop_name" value="Магазин Два"/>
+            <column name="location_id" value="2"/>
+            <column name="shop_owner_id" value="2"/>
+            <column name="category_id" value="1"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="3"/>
+            <column name="shop_name" value="Третий Магазин"/>
+            <column name="location_id" value="3"/>
+            <column name="shop_owner_id" value="3"/>
+            <column name="category_id" value="2"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="4"/>
+            <column name="shop_name" value="Магазин Четвёрка"/>
+            <column name="location_id" value="4"/>
+            <column name="shop_owner_id" value="4"/>
+            <column name="category_id" value="2"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="5"/>
+            <column name="shop_name" value="Пятый Магазин"/>
+            <column name="location_id" value="5"/>
+            <column name="shop_owner_id" value="5"/>
+            <column name="category_id" value="3"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="6"/>
+            <column name="shop_name" value="Шестёрочка"/>
+            <column name="location_id" value="6"/>
+            <column name="shop_owner_id" value="6"/>
+            <column name="category_id" value="3"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="7"/>
+            <column name="shop_name" value="Семёрка"/>
+            <column name="location_id" value="8"/>
+            <column name="shop_owner_id" value="7"/>
+            <column name="category_id" value="4"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="8"/>
+            <column name="shop_name" value="Восьмой магазин"/>
+            <column name="location_id" value="9"/>
+            <column name="shop_owner_id" value="8"/>
+            <column name="category_id" value="4"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="9"/>
+            <column name="shop_name" value="Девятка"/>
+            <column name="location_id" value="10"/>
+            <column name="shop_owner_id" value="9"/>
+            <column name="category_id" value="5"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="10"/>
+            <column name="shop_name" value="Десять и точка"/>
+            <column name="location_id" value="11"/>
+            <column name="shop_owner_id" value="3"/>
+            <column name="category_id" value="5"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="11"/>
+            <column name="shop_name" value="Одиннадцатый магазин"/>
+            <column name="location_id" value="12"/>
+            <column name="shop_owner_id" value="6"/>
+            <column name="category_id" value="1"/>
+        </insert>
+        <insert tableName="shop">
+            <column name="id" value="12"/>
+            <column name="shop_name" value="Магазин №12"/>
+            <column name="location_id" value="13"/>
+            <column name="shop_owner_id" value="8"/>
+            <column name="category_id" value="3"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
