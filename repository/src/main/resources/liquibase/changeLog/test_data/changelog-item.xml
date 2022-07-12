@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="6-item" author="JustShooter" context="test-data">
+        <comment>Add data to item table</comment>
+        <insert tableName="item">
+            <column name="id" value="1"/>
+            <column name="name" value="Товар деский 1"/>
+            <column name="article" value="32541"/>
+            <column name="barcode" value="6964459707650"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="2"/>
+            <column name="name" value="Товар деский 2"/>
+            <column name="article" value="94979"/>
+            <column name="barcode" value="6947703763625"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="3"/>
+            <column name="name" value="Товар деский 3"/>
+            <column name="article" value="47187"/>
+            <column name="barcode" value="6949422856059"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="4"/>
+            <column name="name" value="Товар деский 4"/>
+            <column name="article" value="44921"/>
+            <column name="barcode" value="6965438468836"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="5"/>
+            <column name="name" value="Товар деский 5"/>
+            <column name="article" value="32826"/>
+            <column name="barcode" value="6946151526047"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="6"/>
+            <column name="name" value="Товар деский 6"/>
+            <column name="article" value="13026"/>
+            <column name="barcode" value="6913629074074"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="7"/>
+            <column name="name" value="Товар деский 7"/>
+            <column name="article" value="16613"/>
+            <column name="barcode" value="6938247237228"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="8"/>
+            <column name="name" value="Товар деский 8"/>
+            <column name="article" value="35805"/>
+            <column name="barcode" value="6966516261803"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="9"/>
+            <column name="name" value="Товар деский 9"/>
+            <column name="article" value="80490"/>
+            <column name="barcode" value="6906088725669"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="10"/>
+            <column name="name" value="Товар деский 10"/>
+            <column name="article" value="20655"/>
+            <column name="barcode" value="6945484798084"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="11"/>
+            <column name="name" value="Товар одежда 1"/>
+            <column name="article" value="13453"/>
+            <column name="barcode" value="6917376520597"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="12"/>
+            <column name="name" value="Товар одежда 2"/>
+            <column name="article" value="27294"/>
+            <column name="barcode" value="6975130674266"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="13"/>
+            <column name="name" value="Товар одежда 3"/>
+            <column name="article" value="62366"/>
+            <column name="barcode" value="6933964117185"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="14"/>
+            <column name="name" value="Товар одежда 4"/>
+            <column name="article" value="21707"/>
+            <column name="barcode" value="6971231388120"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="15"/>
+            <column name="name" value="Товар одежда 5"/>
+            <column name="article" value="77839"/>
+            <column name="barcode" value="6904789027923"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="16"/>
+            <column name="name" value="Товар одежда 6"/>
+            <column name="article" value="30795"/>
+            <column name="barcode" value="6998051268260"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="17"/>
+            <column name="name" value="Товар одежда 7"/>
+            <column name="article" value="12866"/>
+            <column name="barcode" value="6956087333420"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="18"/>
+            <column name="name" value="Товар одежда 8"/>
+            <column name="article" value="48733"/>
+            <column name="barcode" value="6928628693123"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="19"/>
+            <column name="name" value="Товар одежда 9"/>
+            <column name="article" value="60799"/>
+            <column name="barcode" value="6964107356622"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="20"/>
+            <column name="name" value="Товар одежда 10"/>
+            <column name="article" value="56078"/>
+            <column name="barcode" value="6901113142162"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="21"/>
+            <column name="name" value="Товар спортивная одежда 1"/>
+            <column name="article" value="78784"/>
+            <column name="barcode" value="6901692436323"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="22"/>
+            <column name="name" value="Товар спортивная одежда 2"/>
+            <column name="article" value="29679"/>
+            <column name="barcode" value="6928547380422"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="23"/>
+            <column name="name" value="Товар спортивная одежда 3"/>
+            <column name="article" value="47749"/>
+            <column name="barcode" value="6938312097754"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="24"/>
+            <column name="name" value="Товар спортивная одежда 4"/>
+            <column name="article" value="69438"/>
+            <column name="barcode" value="6951064851470"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="25"/>
+            <column name="name" value="Товар спортивная одежда 5"/>
+            <column name="article" value="26235"/>
+            <column name="barcode" value="6923896847786"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="26"/>
+            <column name="name" value="Товар спортивная одежда 6"/>
+            <column name="article" value="92050"/>
+            <column name="barcode" value="6935685858526"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="27"/>
+            <column name="name" value="Товар спортивная одежда 7"/>
+            <column name="article" value="47085"/>
+            <column name="barcode" value="6981705378809"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="28"/>
+            <column name="name" value="Товар спортивная одежда 8"/>
+            <column name="article" value="85021"/>
+            <column name="barcode" value="6967863284473"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="29"/>
+            <column name="name" value="Товар спортивная одежда 9"/>
+            <column name="article" value="66739"/>
+            <column name="barcode" value="6903347207104"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="30"/>
+            <column name="name" value="Товар спортивная одежда 10"/>
+            <column name="article" value="83500"/>
+            <column name="barcode" value="6929689324515"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="31"/>
+            <column name="name" value="Товар нижнее бельё 1"/>
+            <column name="article" value="88860"/>
+            <column name="barcode" value="6916063782399"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="32"/>
+            <column name="name" value="Товар нижнее бельё 2"/>
+            <column name="article" value="41156"/>
+            <column name="barcode" value="6915185700952"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="33"/>
+            <column name="name" value="Товар нижнее бельё 3"/>
+            <column name="article" value="60710"/>
+            <column name="barcode" value="6916362542592"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="34"/>
+            <column name="name" value="Товар нижнее бельё 4"/>
+            <column name="article" value="62521"/>
+            <column name="barcode" value="6996420780495"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="35"/>
+            <column name="name" value="Товар нижнее бельё 5"/>
+            <column name="article" value="29920"/>
+            <column name="barcode" value="6957599581524"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="36"/>
+            <column name="name" value="Товар нижнее бельё 6"/>
+            <column name="article" value="70999"/>
+            <column name="barcode" value="6944723644494"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="37"/>
+            <column name="name" value="Товар нижнее бельё 7"/>
+            <column name="article" value="46353"/>
+            <column name="barcode" value="6903075207861"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="38"/>
+            <column name="name" value="Товар нижнее бельё 8"/>
+            <column name="article" value="68496"/>
+            <column name="barcode" value="6925833724639"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="39"/>
+            <column name="name" value="Товар нижнее бельё 9"/>
+            <column name="article" value="95655"/>
+            <column name="barcode" value="6996890086822"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="40"/>
+            <column name="name" value="Товар нижнее бельё 10"/>
+            <column name="article" value="25993"/>
+            <column name="barcode" value="6908804587944"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="41"/>
+            <column name="name" value="Товар ювелирное изделие № 1"/>
+            <column name="article" value="83262"/>
+            <column name="barcode" value="6913974289761"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="42"/>
+            <column name="name" value="Товар ювелирное изделие № 2"/>
+            <column name="article" value="66283"/>
+            <column name="barcode" value="6952858553249"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="43"/>
+            <column name="name" value="Товар ювелирное изделие № 3"/>
+            <column name="article" value="31895"/>
+            <column name="barcode" value="6947772640113"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="44"/>
+            <column name="name" value="Товар ювелирное изделие № 4"/>
+            <column name="article" value="31626"/>
+            <column name="barcode" value="6956041809085"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="45"/>
+            <column name="name" value="Товар ювелирное изделие № 5"/>
+            <column name="article" value="26692"/>
+            <column name="barcode" value="6929516715027"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="46"/>
+            <column name="name" value="Товар ювелирное изделие № 6"/>
+            <column name="article" value="27915"/>
+            <column name="barcode" value="6941107226520"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="47"/>
+            <column name="name" value="Товар ювелирное изделие № 7"/>
+            <column name="article" value="76328"/>
+            <column name="barcode" value="6949718736077"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="48"/>
+            <column name="name" value="Товар ювелирное изделие № 8"/>
+            <column name="article" value="49383"/>
+            <column name="barcode" value="6935556020149"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="49"/>
+            <column name="name" value="Товар ювелирное изделие № 9"/>
+            <column name="article" value="87021"/>
+            <column name="barcode" value="6948908962007"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="50"/>
+            <column name="name" value="Товар ювелирное изделие № 10"/>
+            <column name="article" value="81466"/>
+            <column name="barcode" value="6962331359304"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="51"/>
+            <column name="name" value="Товар аксессуары 1"/>
+            <column name="article" value="15012"/>
+            <column name="barcode" value="6909344945458"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="52"/>
+            <column name="name" value="Товар аксессуары 2"/>
+            <column name="article" value="98581"/>
+            <column name="barcode" value="6949235748788"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="53"/>
+            <column name="name" value="Товар аксессуары 3"/>
+            <column name="article" value="91536"/>
+            <column name="barcode" value="6906522252524"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="54"/>
+            <column name="name" value="Товар аксессуары 4"/>
+            <column name="article" value="24109"/>
+            <column name="barcode" value="6966078082877"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="55"/>
+            <column name="name" value="Товар аксессуары 5"/>
+            <column name="article" value="83729"/>
+            <column name="barcode" value="6944847331657"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="56"/>
+            <column name="name" value="Товар аксессуары 6"/>
+            <column name="article" value="42563"/>
+            <column name="barcode" value="6950764084621"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="57"/>
+            <column name="name" value="Товар аксессуары 7"/>
+            <column name="article" value="43050"/>
+            <column name="barcode" value="6958409605660"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="58"/>
+            <column name="name" value="Товар аксессуары 8"/>
+            <column name="article" value="91838"/>
+            <column name="barcode" value="6951226905173"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="59"/>
+            <column name="name" value="Товар аксессуары 9"/>
+            <column name="article" value="60423"/>
+            <column name="barcode" value="6966969766814"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="60"/>
+            <column name="name" value="Товар аксессуары 10"/>
+            <column name="article" value="70500"/>
+            <column name="barcode" value="6966384464899"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="61"/>
+            <column name="name" value="Товар прочее 1"/>
+            <column name="article" value="48409"/>
+            <column name="barcode" value="6960936822926"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="62"/>
+            <column name="name" value="Товар прочее 2"/>
+            <column name="article" value="93989"/>
+            <column name="barcode" value="6968179735216"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="63"/>
+            <column name="name" value="Товар прочее 3"/>
+            <column name="article" value="37223"/>
+            <column name="barcode" value="6911685146715"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="64"/>
+            <column name="name" value="Товар прочее 4"/>
+            <column name="article" value="91510"/>
+            <column name="barcode" value="6931730011191"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="65"/>
+            <column name="name" value="Товар прочее 5"/>
+            <column name="article" value="85740"/>
+            <column name="barcode" value="6950250831976"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="66"/>
+            <column name="name" value="Товар прочее 6"/>
+            <column name="article" value="43685"/>
+            <column name="barcode" value="6994806164797"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="67"/>
+            <column name="name" value="Товар прочее 7"/>
+            <column name="article" value="40144"/>
+            <column name="barcode" value="6909464318154"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="68"/>
+            <column name="name" value="Товар прочее 8"/>
+            <column name="article" value="81135"/>
+            <column name="barcode" value="6987732436134"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="69"/>
+            <column name="name" value="Товар прочее 9"/>
+            <column name="article" value="59191"/>
+            <column name="barcode" value="6930270777171"/>
+        </insert>
+
+        <insert tableName="item">
+            <column name="id" value="70"/>
+            <column name="name" value="Товар прочее 10"/>
+            <column name="article" value="32284"/>
+            <column name="barcode" value="6941442231954"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

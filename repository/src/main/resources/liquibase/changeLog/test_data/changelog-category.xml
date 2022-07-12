@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+    objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="4-category" author="JustShooter" context="test-data">
+        <comment>Add data to category table</comment>
+        <insert tableName="category">
+            <column name="id" value="1"/>
+            <column name="name" value="Товары для детей"/>
+            <column name="description"
+                    value="Детские игрушки, детская и подростковая одежда и обувь."/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="2"/>
+            <column name="name" value="Одежда"/>
+            <column name="description"
+                    value="Одежда для взрослых и детей, исключая спортивную одежду и нижнее бельё."/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="3"/>
+            <column name="name" value="Спортивная одежда"/>
+            <column name="description"
+                    value="Детские игрушки, детская и подростковая одежда и обувь."/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="4"/>
+            <column name="name" value="Нижнее бельё"/>
+            <column name="description"
+                    value="Мужское и женское нижнее бельё."/>
+        </insert>
+        <insert tableName="category">
+            <column name="id" value="5"/>
+            <column name="name" value="Ювелирные изделия"/>
+            <column name="description"
+                    value="Ювелирные изделия из золота и серебра, драгоценные камни и изделия с ними."/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
