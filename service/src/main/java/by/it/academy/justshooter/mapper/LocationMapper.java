@@ -8,6 +8,9 @@ import java.util.Optional;
 
 public class LocationMapper {
 
+    private LocationMapper() {
+    }
+
     public static LocationDto mapFrom(Location location) {
         return new LocationDto(
                 location.getId(),
@@ -15,6 +18,9 @@ public class LocationMapper {
                 location.getFloor(),
                 Optional.ofNullable(location.getShop())
                         .map(Shop::getId)
+                        .orElse(null),
+                Optional.ofNullable(location.getShop())
+                        .map(Shop::getShopName)
                         .orElse(null),
                 location.getDescription());
     }

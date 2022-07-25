@@ -2,6 +2,7 @@ package by.it.academy.justshooter.services;
 
 import by.it.academy.justshooter.dao.ItemDaoImpl;
 import by.it.academy.justshooter.dao.PriceDaoImpl;
+import by.it.academy.justshooter.dao.exception.NoDataFoundById;
 import by.it.academy.justshooter.dao.interfaces.ItemDao;
 import by.it.academy.justshooter.dao.interfaces.PriceDao;
 import by.it.academy.justshooter.dto.DiscountDto;
@@ -9,10 +10,12 @@ import by.it.academy.justshooter.dto.ItemDto;
 import by.it.academy.justshooter.dto.ItemForShopDto;
 import by.it.academy.justshooter.dto.PriceDto;
 import by.it.academy.justshooter.entity.Discount;
+import by.it.academy.justshooter.entity.Item;
 import by.it.academy.justshooter.mapper.DiscountMapper;
 import by.it.academy.justshooter.mapper.ItemMapper;
 import by.it.academy.justshooter.mapper.PriceMapper;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -62,5 +65,43 @@ public class ItemServiceImpl {
         return itemForShopDtoList;
     }
 
+    public List<ItemDto> getAllItems() {
+        return itemDao.findAll()
+                .stream()
+                .map(ItemMapper::mapFrom)
+                .sorted(Comparator.comparing(ItemDto::getId))
+                .collect(Collectors.toList());
+    }
 
+    public ItemDto getItemById(Integer itemId) throws NoDataFoundById {
+        return ItemMapper.mapFrom(itemDao.findOne(itemId));
+    }
+
+    public void deleteItemById(Integer itemId) throws NoDataFoundById {
+        itemDao.deleteById(itemId);
+    }
+
+    public void createNewItem(String itemName, String article, String barcode) {
+        itemDao.create(Item.builder()
+                .name(itemName)
+                .article(article)
+                .barcode(barcode)
+                .build());
+    }
+
+    @Transactional()
+    public void updateItemData(Integer itemId, String itemName, String article, String barcode)
+            throws NoDataFoundById {
+        Item item = itemDao.findOne(itemId);
+        if (!item.getName().equals(itemName)){
+            item.setName(itemName);
+        }
+        if (!item.getArticle().equals(article)){
+            item.setArticle(article);
+        }
+        if (!item.getBarcode().equals(barcode)){
+            item.setBarcode(barcode);
+        }
+        itemDao.update(item);
+    }
 }

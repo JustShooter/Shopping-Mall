@@ -5,6 +5,9 @@ import by.it.academy.justshooter.entity.Price;
 
 public class PriceMapper {
 
+    private PriceMapper() {
+    }
+
     public static PriceDto mapFrom(Price price) {
         return new PriceDto(
                 price.getId(),

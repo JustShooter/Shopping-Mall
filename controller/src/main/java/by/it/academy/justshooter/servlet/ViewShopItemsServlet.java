@@ -13,29 +13,32 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ViewShopServlet", value = "/viewShopItems")
-public class ViewShopServlet extends HttpServlet {
+import static by.it.academy.justshooter.servlet.MockConstants.ERROR;
+
+@WebServlet(name = "ViewShopItemsServlet", value = "/viewShopItems")
+public class ViewShopItemsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ShopServiceImpl shopService = new ShopServiceImpl();
-        ItemServiceImpl itemService = new ItemServiceImpl();
-        Integer shopId = Integer.valueOf(ParamUtils.getParam(request, "shopId"));
+//        ItemServiceImpl itemService = new ItemServiceImpl();
+        Integer shopId = ParamUtils.getIntegerParam(request, "shopId");
+        request.setAttribute("shopId", shopId);
+        if (ParamUtils.isNull(shopId)) {
+            request.setAttribute(ERROR, "ID can not be empty");
+            request.getRequestDispatcher("/").forward(request, response);
+        }
         try {
             String shopName = shopService.getShopById(shopId).getShopName();
             request.setAttribute("shopName", shopName);
         } catch (NoDataFoundById e) {
             request.setAttribute("error", "Shop " + shopId + " not found!");
-            //TODO Сделать модалку на Index.jsp для вывода ошибки!!!
             request.getRequestDispatcher("/").forward(request, response);
         }
-        List<ItemForShopDto> itemsWithPriceForShop = itemService.getAllItemsWithPriceForShop(shopId);
-        request.setAttribute("items", itemsWithPriceForShop);
+//        List<ItemForShopDto> itemsWithPriceForShop = itemService.getAllItemsWithPriceForShop(shopId);
+//        request.setAttribute("items", itemsWithPriceForShop);
         request.getRequestDispatcher("allItemsOfShop.jsp").forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
 }

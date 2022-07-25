@@ -28,32 +28,21 @@ public class Shop {
     @Column(name = "shop_name", nullable = false)
     private String shopName;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, optional = false)
     @JoinColumn(name = "location_id", nullable = false, unique = true)
     private Location location;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, optional = false)
     @JoinColumn(name = "shop_owner_id", nullable = false)
     private ShopOwner shopOwner;
 
     @Builder.Default
-    @OneToMany(mappedBy = "shop", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    @OneToMany(mappedBy = "shop", cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     private Set<ShopItemPriceDiscount> shopItemPriceDiscounts = new LinkedHashSet<>();
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, optional = false)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
-
-/*@Builder.Default
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "shop_items",
-            joinColumns = @JoinColumn(name = "shop_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "items_id", referencedColumnName = "id"))
-    private Set<Item> items = new LinkedHashSet<>();
-
-    @Builder.Default
-    @ManyToMany(mappedBy = "shops", cascade = CascadeType.ALL)
-    private Set<Discount> discounts = new LinkedHashSet<>();*/
 
 
     @Override

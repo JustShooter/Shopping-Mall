@@ -1,15 +1,13 @@
 package by.it.academy.justshooter;
 
-import by.it.academy.justshooter.dao.CategoryDaoImpl;
-import by.it.academy.justshooter.dao.DiscountDaoImpl;
-import by.it.academy.justshooter.dao.ShopDaoImpl;
+import by.it.academy.justshooter.dao.*;
 import by.it.academy.justshooter.dao.exception.NoDataFoundById;
-import by.it.academy.justshooter.dao.interfaces.CategoryDao;
-import by.it.academy.justshooter.dao.interfaces.DiscountDao;
-import by.it.academy.justshooter.dao.interfaces.ShopDao;
-import by.it.academy.justshooter.entity.Category;
-import by.it.academy.justshooter.entity.Discount;
-import by.it.academy.justshooter.entity.Shop;
+import by.it.academy.justshooter.dao.interfaces.*;
+import by.it.academy.justshooter.entity.*;
+import by.it.academy.justshooter.entity.enums.StreetType;
+import by.it.academy.justshooter.util.HibernateUtil;
+import liquibase.Liquibase;
+import liquibase.database.core.MySQLDatabase;
 
 import java.sql.Date;
 import java.util.List;
@@ -49,12 +47,47 @@ public class AppTest {
 
         discountDao.closeAll();*/
 
-        CategoryDao categoryDao = new CategoryDaoImpl();
+        /*CategoryDao categoryDao = new CategoryDaoImpl();
         System.out.println(categoryDao.findAll());
 
         ShopDao shopDao = new ShopDaoImpl();
         List<Shop> shopsByCategoryId = shopDao.getShopsByCategoryId(1);
         System.out.println(shopsByCategoryId);
-        shopDao.closeAll();
+        shopDao.closeAll();*/
+
+       /* LocationDao locationDao = new LocationDaoImpl();
+        List<Location> freeLocations = locationDao.getFreeLocations();
+        System.out.println(freeLocations);*/
+
+       /* ShopDao shopDao = new ShopDaoImpl();
+        shopDao.deleteById(1);
+        shopDao.closeAll();*/
+
+        ShopOwnerDao shopOwnerDao = new ShopOwnerDaoImpl();
+        AddressDao addressDao = new AddressDaoImpl();
+/*        ShopDao shopDao = new ShopDaoImpl();
+        LocationDao locationDao = new LocationDaoImpl();
+        CategoryDao categoryDao = new CategoryDaoImpl();*/
+
+        /*ShopOwner shopOwner = shopOwnerDao.findOne(1);
+        Category category = categoryDao.findOne(1);
+        Location location = locationDao.findOne(14);
+
+        Shop shop = Shop.builder()
+                .shopName("TestShop")
+                .shopOwner(shopOwner)
+                .category(category)
+                .location(location)
+                .build();
+
+        shopDao.create(shop);*/
+        /*
+        Shop one = shopDao.findOne(18);
+
+        one.setCategory(categoryDao.findOne(4));
+
+        shopDao.update(one);
+*/
+       shopOwnerDao.deleteById(12);
     }
 }

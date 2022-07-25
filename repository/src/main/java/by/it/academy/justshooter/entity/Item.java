@@ -37,24 +37,9 @@ public class Item {
     private String barcode;
 
     @Builder.Default
-    @OneToMany(mappedBy = "item", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "item", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private Set<ShopItemPriceDiscount> shopItemPriceDiscounts = new LinkedHashSet<>();
 
-    /*@Builder.Default
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "item_id")
-    private List<Price> prices = new ArrayList<>();
-
-    @Builder.Default
-    @ManyToMany(mappedBy = "items", cascade = CascadeType.ALL)
-    private Set<Shop> shops = new LinkedHashSet<>();
-
-    @Builder.Default
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "item_discounts",
-            joinColumns = @JoinColumn(name = "item_id"),
-            inverseJoinColumns = @JoinColumn(name = "discounts_id"))
-    private Set<Discount> discounts = new LinkedHashSet<>();*/
 
     @Override
     public boolean equals(Object o) {

@@ -7,4 +7,5 @@ import java.util.List;
 public interface ShopDao extends DaoInterface<Shop> {
 
     List<Shop> getShopsByCategoryId(Integer id);
+
 }

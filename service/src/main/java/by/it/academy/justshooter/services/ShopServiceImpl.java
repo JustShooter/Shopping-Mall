@@ -27,7 +27,7 @@ public class ShopServiceImpl {
                 .findAll()
                 .stream()
                 .map(ShopMapper::mapFrom)
-                .sorted(Comparator.comparing(ShopDto::hashCode))
+                .sorted(Comparator.comparing(ShopDto::getId))
                 .collect(Collectors.toList());
     }
 

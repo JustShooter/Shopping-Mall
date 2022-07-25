@@ -1,5 +1,6 @@
 package by.it.academy.justshooter.dao;
 
+import by.it.academy.justshooter.dao.exception.NoDataFoundById;
 import by.it.academy.justshooter.dao.interfaces.ShopDao;
 import by.it.academy.justshooter.dao.abstractdao.Dao;
 import by.it.academy.justshooter.entity.Shop;
@@ -21,4 +22,5 @@ public class ShopDaoImpl extends Dao<Shop> implements ShopDao {
                 .setParameter("categoryId", categoryId)
                 .getResultList();
     }
+
 }

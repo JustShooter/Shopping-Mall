@@ -21,6 +21,11 @@ public abstract class Dao<T> implements DaoInterface<T> {
 
     @Override
     public T findOne(final Object id) throws NoDataFoundById {
+       /* T entity = entityManager.find(entityClass, id);
+        if(entity==null){
+            throw new NoDataFoundById("No such id found!");
+        }
+        return entity;*/
         return Optional
                 .ofNullable(entityManager.find(entityClass, id))
                 .orElseThrow(() -> new NoDataFoundById("No such id found!"));
@@ -29,7 +34,7 @@ public abstract class Dao<T> implements DaoInterface<T> {
     @Override
     @SuppressWarnings("unchecked")
     public List<T> findAll() {
-        return (List<T>) entityManager.createQuery("from " + entityClass.getName()).getResultList();
+        return entityManager.createQuery("from " + entityClass.getName()).getResultList();
     }
 
     @Override

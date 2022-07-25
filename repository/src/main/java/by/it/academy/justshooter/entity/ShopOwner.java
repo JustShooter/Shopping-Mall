@@ -28,12 +28,12 @@ public class ShopOwner {
     @Column(name = "owner_name")
     private String ownerName;
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.MERGE, optional = false)
     @JoinColumn(name = "address_id", nullable = false, unique = true)
     private Address address;
 
     @Builder.Default
-    @OneToMany(mappedBy = "shopOwner", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "shopOwner", cascade = CascadeType.ALL)
     private Set<Shop> shops = new LinkedHashSet<>();
 
     @Override

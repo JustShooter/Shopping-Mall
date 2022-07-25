@@ -1,9 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
-<c:if test="${sessionScope.shopList == null}">
-    <jsp:forward page="StartServlet"/>
-</c:if>
 <nav class="navbar-light bg-light">
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -18,9 +15,21 @@
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="${pageContext.request.contextPath}/" class="nav-link active"
                                         aria-current="page">На главную</a></li>
-                <li class="nav-item"><a href="viewAllShops" class="nav-link">Все магазины</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Меню администратора
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ShopOwners">Владельцы магазинов</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/Locations">Торговые места</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/Categories">Категории</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/Shops">Все магазины</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/Items">Все товары</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="${pageContext.request.contextPath}/viewShopsInCategory" class="nav-link">Магазины</a></li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="modal" href="#shops">Товары в магазине</a>
+                    <a class="nav-link" data-bs-toggle="modal" href="#shops">Меню владельца магазина</a>
                 </li>
                 <li class="nav-item">
                     <a href="#discounts" data-bs-toggle="modal" class="nav-link">Поиск скидки</a></li>
@@ -40,14 +49,12 @@
             <form action="viewShopItems">
                 <div class="modal-body">
 
-
-                    <select name="shopId" class="form-select" aria-label="Default select example">
-                        <option selected>Выберите магазин</option>
+                    <select name="shopId" class="form-select" aria-label="Default select example" required>
+                        <option selected disabled>Выберите магазин</option>
                         <c:forEach items="${sessionScope.shopList}" var="shops">
                             <option value="${shops.getId()}">${shops.getShopName()}</option>
                         </c:forEach>
                     </select>
-
 
                 </div>
                 <div class="modal-footer">

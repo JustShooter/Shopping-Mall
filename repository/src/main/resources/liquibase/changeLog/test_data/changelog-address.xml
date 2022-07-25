@@ -11,7 +11,7 @@
         <insert tableName="address">
             <column name="id" value="1"/>
             <column name="city" value="Минск"/>
-            <column name="street_type" value="0"/>
+            <column name="street_type" value="ULICA"/>
             <column name="street" value="Первая"/>
             <column name="building_number" value="11"/>
             <column name="office_number" value="12"/>
@@ -20,7 +20,7 @@
         <insert tableName="address">
             <column name="id" value="2"/>
             <column name="city" value="Минск"/>
-            <column name="street_type" value="0"/>
+            <column name="street_type" value="ULICA"/>
             <column name="street" value="Вторая"/>
             <column name="building_number" value="22"/>
             <column name="office_number" value="24"/>
@@ -29,7 +29,7 @@
         <insert tableName="address">
             <column name="id" value="3"/>
             <column name="city" value="Минск"/>
-            <column name="street_type" value="0"/>
+            <column name="street_type" value="ULICA"/>
             <column name="street" value="Третья"/>
             <column name="building_number" value="33"/>
             <column name="office_number" value="36"/>
@@ -38,7 +38,7 @@
         <insert tableName="address">
             <column name="id" value="4"/>
             <column name="city" value="Минск"/>
-            <column name="street_type" value="0"/>
+            <column name="street_type" value="ULICA"/>
             <column name="street" value="Четвёртая"/>
             <column name="building_number" value="44"/>
             <column name="office_number" value="48"/>
@@ -47,7 +47,7 @@
         <insert tableName="address">
             <column name="id" value="5"/>
             <column name="city" value="Гродно"/>
-            <column name="street_type" value="2"/>
+            <column name="street_type" value="PROSPEKT"/>
             <column name="street" value="Главный"/>
             <column name="building_number" value="55"/>
             <column name="office_number" value="60"/>
@@ -56,7 +56,7 @@
         <insert tableName="address">
             <column name="id" value="6"/>
             <column name="city" value="Витебск"/>
-            <column name="street_type" value="3"/>
+            <column name="street_type" value="BULVAR"/>
             <column name="street" value="Пятый"/>
             <column name="building_number" value="66"/>
             <column name="office_number" value="72"/>
@@ -65,7 +65,7 @@
         <insert tableName="address">
             <column name="id" value="7"/>
             <column name="city" value="Гомель"/>
-            <column name="street_type" value="5"/>
+            <column name="street_type" value="TRAKT"/>
             <column name="street" value="Шестой"/>
             <column name="building_number" value="77"/>
             <column name="office_number" value="84"/>
@@ -74,7 +74,7 @@
         <insert tableName="address">
             <column name="id" value="8"/>
             <column name="city" value="Брест"/>
-            <column name="street_type" value="0"/>
+            <column name="street_type" value="ULICA"/>
             <column name="street" value="Седьмая"/>
             <column name="building_number" value="88"/>
             <column name="office_number" value="96"/>
@@ -83,7 +83,7 @@
         <insert tableName="address">
             <column name="id" value="9"/>
             <column name="city" value="Дзержинск"/>
-            <column name="street_type" value="1"/>
+            <column name="street_type" value="PEREULOK"/>
             <column name="street" value="Восьмой"/>
             <column name="building_number" value="99"/>
             <column name="office_number" value="108"/>

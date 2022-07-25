@@ -7,16 +7,15 @@ import by.it.academy.justshooter.entity.ShopOwner;
 import java.util.Optional;
 
 public class AddressMapper {
+    private AddressMapper() {
+    }
 
     public static AddressDto mapFrom(Address address) {
         return new AddressDto(
                 address.getId(),
-                Optional.ofNullable(address.getShopOwner())
-                        .map(ShopOwner::getId)
-                        .orElse(null),
                 address.getCity(),
                 address.getStreet(),
-                address.getStreetType().getFullName(),
+                address.getStreetType(),
                 address.getBuildingNumber(),
                 address.getOfficeNumber());
     }

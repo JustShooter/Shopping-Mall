@@ -10,5 +10,6 @@ public class LocationDto implements Serializable {
     private final String shopNumber;
     private final Integer floor;
     private final Integer shopId;
+    private final String shopName;
     private final String description;
 }

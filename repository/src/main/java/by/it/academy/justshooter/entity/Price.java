@@ -29,15 +29,8 @@ public class Price {
     private Double priceValue;
 
     @Builder.Default
-    @OneToMany(mappedBy = "price", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    @OneToMany(mappedBy = "price", cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
     private Set<ShopItemPriceDiscount> shopItemPriceDiscounts = new LinkedHashSet<>();
-
-    /*@Builder.Default
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinTable(name = "price_shops",
-            joinColumns = @JoinColumn(name = "price_id"),
-            inverseJoinColumns = @JoinColumn(name = "shops_id"))
-    private Set<Shop> shops = new LinkedHashSet<>();*/
 
 
     @Override

@@ -4,6 +4,8 @@ import by.it.academy.justshooter.dto.DiscountDto;
 import by.it.academy.justshooter.entity.Discount;
 
 public class DiscountMapper {
+    private DiscountMapper() {
+    }
 
     public static DiscountDto mapFrom(Discount discount) {
         return new DiscountDto(

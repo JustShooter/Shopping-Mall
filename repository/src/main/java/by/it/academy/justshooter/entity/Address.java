@@ -9,7 +9,9 @@ import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -24,8 +26,9 @@ public class Address {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ShopOwner shopOwner;
+    @Builder.Default
+    @OneToMany(mappedBy = "address", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Set<ShopOwner> shopOwners = new HashSet<>();
 
     @Column(name = "city", nullable = false)
     private String city;
@@ -33,7 +36,7 @@ public class Address {
     @Column(name = "street", nullable = false)
     private String street;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "street_type", nullable = false)
     private StreetType streetType;
 

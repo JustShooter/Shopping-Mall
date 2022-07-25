@@ -13,15 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AllShopsServlets", value = "/viewAllShops")
-public class AllShopsServlets extends HttpServlet {
+@WebServlet(name = "ShopsInCategoryServlet", value = "/viewShopsInCategory")
+public class ShopsInCategoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String categoryId = ParamUtils.getParam(request, "category");
+        Integer categoryId = ParamUtils.getIntegerParam(request, "category");
         ShopServiceImpl shopService = new ShopServiceImpl();
-        if (categoryId != null) {
-            List<ShopDto> shopsInCategory = shopService.getShopsByCategory(Integer.valueOf(categoryId));
+        if (null != categoryId) {
+            List<ShopDto> shopsInCategory = shopService.getShopsByCategory(categoryId);
             request.setAttribute("shopsInCategory", shopsInCategory);
         }
         List<CategoryDto> allCategories = shopService.getAllCategories();

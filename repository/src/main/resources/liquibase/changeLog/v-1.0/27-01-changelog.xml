@@ -17,8 +17,9 @@
             <column name="street" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="street_type" type="INT">
-                <constraints nullable="false"/>
+            <column name="street_type" type="VARCHAR(255)">
+                <constraints nullable="false"
+                             validateNullable="true"/>
             </column>
             <column name="building_number" type="VARCHAR(255)">
                 <constraints nullable="false"/>
@@ -141,45 +142,42 @@
         <addUniqueConstraint columnNames="location_id" constraintName="uc_shop_location" tableName="shop"/>
     </changeSet>
     <changeSet id="shopping-mall-14" author="JustShooter" context="init">
-        <addUniqueConstraint columnNames="address_id" constraintName="uc_shopowner_address" tableName="shopowner"/>
-    </changeSet>
-    <changeSet id="shopping-mall-15" author="JustShooter" context="init">
         <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="shopowner"
                                  constraintName="FK_SHOPOWNER_ON_ADDRESS" referencedColumnNames="id"
                                  referencedTableName="address"/>
     </changeSet>
-    <changeSet id="shopping-mall-16" author="JustShooter" context="init">
+    <changeSet id="shopping-mall-15" author="JustShooter" context="init">
         <addForeignKeyConstraint baseColumnNames="discount_id" baseTableName="shop_item_price_discount"
                                  constraintName="FK_SHOP_ITEM_PRICE_DISCOUNT_ON_DISCOUNT" referencedColumnNames="id"
                                  referencedTableName="discount"/>
     </changeSet>
-    <changeSet id="shopping-mall-17" author="JustShooter" context="init">
+    <changeSet id="shopping-mall-16" author="JustShooter" context="init">
         <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="shop_item_price_discount"
                                  constraintName="FK_SHOP_ITEM_PRICE_DISCOUNT_ON_ITEM" referencedColumnNames="id"
                                  referencedTableName="item"/>
     </changeSet>
-    <changeSet id="shopping-mall-18" author="JustShooter" context="init">
+    <changeSet id="shopping-mall-17" author="JustShooter" context="init">
         <addForeignKeyConstraint baseColumnNames="price_id" baseTableName="shop_item_price_discount"
                                  constraintName="FK_SHOP_ITEM_PRICE_DISCOUNT_ON_PRICE" referencedColumnNames="id"
                                  referencedTableName="price"/>
     </changeSet>
-    <changeSet id="shopping-mall-19" author="JustShooter" context="init">
+    <changeSet id="shopping-mall-18" author="JustShooter" context="init">
         <addForeignKeyConstraint baseColumnNames="shop_id" baseTableName="shop_item_price_discount"
                                  constraintName="FK_SHOP_ITEM_PRICE_DISCOUNT_ON_SHOP" referencedColumnNames="id"
                                  referencedTableName="shop"/>
     </changeSet>
-    <changeSet id="shopping-mall-20" author="JustShooter" context="init">
+    <changeSet id="shopping-mall-19" author="JustShooter" context="init">
         <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="shop" constraintName="FK_SHOP_ON_LOCATION"
                                  referencedColumnNames="id" referencedTableName="location"/>
     </changeSet>
-    <changeSet id="shopping-mall-21" author="JustShooter" context="init">
+    <changeSet id="shopping-mall-20" author="JustShooter" context="init">
         <addForeignKeyConstraint baseColumnNames="shop_owner_id" baseTableName="shop"
                                  constraintName="FK_SHOP_ON_SHOP_OWNER" referencedColumnNames="id"
                                  referencedTableName="shopowner"/>
     </changeSet>
-    <changeSet id="shopping-mall-22" author="JustShooter" context="init">
-        <addUniqueConstraint tableName="shop_item_price_discount" columnNames="shop_id, item_id, price_id, discount_id"
-                             constraintName="UC_SHOP_ITEM_PRICE_DISCOUNT"/>
+    <changeSet id="shopping-mall-21" author="JustShooter" context="init">
+        <addUniqueConstraint tableName="shop_item_price_discount" columnNames="shop_id, item_id"
+                             constraintName="UC_SHOP_ITEM"/>
     </changeSet>
 
 </databaseChangeLog>

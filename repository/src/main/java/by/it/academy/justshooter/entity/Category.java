@@ -33,7 +33,7 @@ public class Category {
     private String description;
 
     @Builder.Default
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.MERGE)
     private Set<Shop> shops = new LinkedHashSet<>();
 
     @Override

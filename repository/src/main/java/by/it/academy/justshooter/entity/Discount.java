@@ -36,21 +36,9 @@ public class Discount {
     private Date endDate;
 
     @Builder.Default
-    @OneToMany(mappedBy = "discount", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "discount", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<ShopItemPriceDiscount> shopItemPriceDiscounts = new LinkedHashSet<>();
 
-    /*
-    @Builder.Default
-    @ManyToMany(mappedBy = "discounts", cascade = CascadeType.ALL)
-    private Set<Item> items = new LinkedHashSet<>();
-
-    @Builder.Default
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "discount_shops",
-            joinColumns = @JoinColumn(name = "discount_id"),
-            inverseJoinColumns = @JoinColumn(name = "shops_id"))
-    private Set<Shop> shops = new LinkedHashSet<>();
-*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
