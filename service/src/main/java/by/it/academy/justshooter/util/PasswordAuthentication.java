@@ -14,16 +14,4 @@ public final class PasswordAuthentication {
         return BCrypt.checkpw(password, hashedPassword);
     }
 
-    public static void main(String[] args) {
-        String password = "admin";
-        String candidate = "admin1";
-
-        String hashed = hashPassword(password);
-
-        if (checkPassword(candidate, hashed))
-            System.out.println("It matches");
-        else
-            System.out.println("It does not match");
-    }
-
 }

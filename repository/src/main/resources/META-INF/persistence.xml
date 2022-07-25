@@ -16,7 +16,6 @@
         <class>by.it.academy.justshooter.entity.ShopItemPriceDiscountId</class>
         <class>by.it.academy.justshooter.entity.Category</class>
         <class>by.it.academy.justshooter.entity.User</class>
-        <class>by.it.academy.justshooter.entity.NewEntity</class>
         <class>by.it.academy.justshooter.entity.SearchHistory</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

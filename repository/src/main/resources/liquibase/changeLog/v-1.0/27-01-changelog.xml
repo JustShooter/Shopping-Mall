@@ -180,4 +180,88 @@
                              constraintName="UC_SHOP_ITEM"/>
     </changeSet>
 
+    <changeSet id="shopping-mall-22" author="JustShooter" context="init">
+        <createTable tableName="category">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_category"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="CLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="shopping-mall-23" author="JustShooter" context="init">
+        <addColumn tableName="shop">
+            <column name="category_id" type="INT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="shopping-mall-24" author="JustShooter" context="init">
+        <addNotNullConstraint columnDataType="INT" columnName="category_id" tableName="shop"/>
+    </changeSet>
+    <changeSet id="shopping-mall-25" author="JustShooter" context="init">
+        <addUniqueConstraint columnNames="name" constraintName="uc_category_name" tableName="category"/>
+    </changeSet>
+    <changeSet id="shopping-mall-26" author="JustShooter" context="init">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="shop" constraintName="FK_SHOP_ON_CATEGORY"
+                                 referencedColumnNames="id" referencedTableName="category"/>
+    </changeSet>
+    <changeSet id="shopping-mall-27" author="JustShooter" context="init">
+        <createTable tableName="search_history">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_search_history"/>
+            </column>
+            <column name="user_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time_stamp" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="search_method" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="search_value" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="search_in_shop" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="shopping-mall-28" author="JustShooter" context="init">
+        <createTable tableName="user">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user"/>
+            </column>
+            <column name="user_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shop_owner_id" type="INT"/>
+            <column name="roles" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="shopping-mall-29" author="JustShooter" context="init">
+        <addUniqueConstraint columnNames="address_id" constraintName="uc_shopowner_address" tableName="shopowner"/>
+    </changeSet>
+    <changeSet id="shopping-mall-30" author="JustShooter" context="init">
+        <addUniqueConstraint columnNames="email" constraintName="uc_user_email" tableName="user"/>
+    </changeSet>
+    <changeSet id="shopping-mall-31" author="JustShooter" context="init">
+        <addUniqueConstraint columnNames="shop_owner_id" constraintName="uc_user_shop_owner" tableName="user"/>
+    </changeSet>
+    <changeSet id="shopping-mall-32" author="JustShooter" context="init">
+        <addUniqueConstraint columnNames="user_name" constraintName="uc_user_user_name" tableName="user"/>
+    </changeSet>
+    <changeSet id="shopping-mall-33" author="JustShooter" context="init">
+        <addForeignKeyConstraint baseColumnNames="shop_owner_id" baseTableName="user"
+                                 constraintName="FK_USER_ON_SHOP_OWNER" referencedColumnNames="id"
+                                 referencedTableName="shopowner"/>
+    </changeSet>
+
 </databaseChangeLog>

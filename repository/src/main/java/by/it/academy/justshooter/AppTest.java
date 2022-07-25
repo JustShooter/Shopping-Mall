@@ -88,6 +88,9 @@ public class AppTest {
 
         shopDao.update(one);
 */
-       shopOwnerDao.deleteById(12);
+      /* shopOwnerDao.deleteById(12);*/
+
+        List<Address> all = addressDao.findAll();
+        System.out.println(all);
     }
 }
