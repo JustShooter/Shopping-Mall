@@ -3,6 +3,7 @@ package by.it.academy.justshooter.servlet.admin.location;
 import by.it.academy.justshooter.dao.exception.NoDataFoundById;
 import by.it.academy.justshooter.dto.LocationDto;
 import by.it.academy.justshooter.services.AdminServiceImpl;
+import by.it.academy.justshooter.services.api.AdminService;
 import by.it.academy.justshooter.util.ParamUtils;
 
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ public class LocationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AdminServiceImpl adminService = new AdminServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         String action = ParamUtils.getStringParam(request, ACTION);
         if (null == action) {
             action = "";
@@ -61,7 +62,7 @@ public class LocationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AdminServiceImpl adminService = new AdminServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         String shopNumber = ParamUtils.getStringParam(request, SHOP_NUMBER);
         Integer floor = ParamUtils.getIntegerParam(request, FLOOR);
         String description = ParamUtils.getStringParam(request, DESCRIPTION);

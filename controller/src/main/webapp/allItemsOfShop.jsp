@@ -69,7 +69,7 @@
 </svg>
 <jsp:include page="${pageContext.request.contextPath}/header.jsp"/>
 
-<h1 class="bg-light">${shopName}</h1>
+<h1 class="bg-light text-center">${shopName}</h1>
 
 <%--@elvariable id="count" type="java.lang.Integer"--%>
 <div class="bg-light">

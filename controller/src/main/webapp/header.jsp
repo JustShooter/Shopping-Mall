@@ -51,7 +51,7 @@
 
                     <select name="shopId" class="form-select" aria-label="Default select example" required>
                         <option selected disabled>Выберите магазин</option>
-                        <c:forEach items="${sessionScope.shopList}" var="shops">
+                        <c:forEach items="${applicationScope['shopList']}" var="shops">
                             <option value="${shops.getId()}">${shops.getShopName()}</option>
                         </c:forEach>
                     </select>

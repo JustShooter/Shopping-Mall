@@ -3,6 +3,7 @@ package by.it.academy.justshooter.servlet.admin.category;
 import by.it.academy.justshooter.dao.exception.NoDataFoundById;
 import by.it.academy.justshooter.dto.CategoryDto;
 import by.it.academy.justshooter.services.AdminServiceImpl;
+import by.it.academy.justshooter.services.api.AdminService;
 import by.it.academy.justshooter.util.ParamUtils;
 
 import javax.servlet.ServletException;
@@ -24,7 +25,7 @@ public class CategoryServlet extends HttpServlet {
         if (null == action) {
             action = "";
         }
-        AdminServiceImpl adminService = new AdminServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         Integer categoryId = ParamUtils.getIntegerParam(request, CATEGORY_ID);
         switch (action) {
             case (NEW):
@@ -60,7 +61,7 @@ public class CategoryServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        AdminServiceImpl adminService = new AdminServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         Integer categoryId = ParamUtils.getIntegerParam(request, "categoryId");
         String categoryName = ParamUtils.getStringParam(request, "categoryName");
         String description = ParamUtils.getStringParam(request, "description");

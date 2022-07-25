@@ -4,6 +4,7 @@ import by.it.academy.justshooter.dao.exception.NoDataFoundById;
 import by.it.academy.justshooter.dto.ItemForShopDto;
 import by.it.academy.justshooter.services.ItemServiceImpl;
 import by.it.academy.justshooter.services.ShopServiceImpl;
+import by.it.academy.justshooter.services.api.ShopService;
 import by.it.academy.justshooter.util.ParamUtils;
 
 import javax.servlet.*;
@@ -20,7 +21,7 @@ public class ViewShopItemsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ShopServiceImpl shopService = new ShopServiceImpl();
+        ShopService shopService = new ShopServiceImpl();
 //        ItemServiceImpl itemService = new ItemServiceImpl();
         Integer shopId = ParamUtils.getIntegerParam(request, "shopId");
         request.setAttribute("shopId", shopId);

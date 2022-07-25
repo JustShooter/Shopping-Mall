@@ -22,11 +22,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class ItemServiceImpl {
+public class ItemServiceImpl implements by.it.academy.justshooter.services.api.ItemService {
 
     private final ItemDao itemDao = new ItemDaoImpl();
     private final PriceDao priceDao = new PriceDaoImpl();
 
+    @Override
     public List<ItemDto> getAllItemsOfShopId(Integer shopId) {
         return itemDao
                 .getItemsOfShop(shopId)
@@ -36,16 +37,19 @@ public class ItemServiceImpl {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public PriceDto getPriceOfItemForShop(Integer itemId, Integer shopId) {
         return PriceMapper.mapFrom(priceDao.getPriceIfItemForShop(itemId, shopId));
     }
 
+    @Override
     public DiscountDto getDiscountOfItemForShop(Integer itemId, Integer shopId, Integer priceId) {
         return DiscountMapper.mapFrom(Optional
                 .ofNullable(itemDao.getDiscountOfItemForShop(itemId, shopId, priceId))
                 .orElse(Discount.builder().build()));
     }
 
+    @Override
     public List<ItemForShopDto> getAllItemsWithPriceForShop(Integer shopId) {
         List<ItemDto> allItemsOfShopId = getAllItemsOfShopId(shopId);
         List<ItemForShopDto> itemForShopDtoList = new ArrayList<>();
@@ -65,6 +69,7 @@ public class ItemServiceImpl {
         return itemForShopDtoList;
     }
 
+    @Override
     public List<ItemDto> getAllItems() {
         return itemDao.findAll()
                 .stream()
@@ -73,14 +78,17 @@ public class ItemServiceImpl {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public ItemDto getItemById(Integer itemId) throws NoDataFoundById {
         return ItemMapper.mapFrom(itemDao.findOne(itemId));
     }
 
+    @Override
     public void deleteItemById(Integer itemId) throws NoDataFoundById {
         itemDao.deleteById(itemId);
     }
 
+    @Override
     public void createNewItem(String itemName, String article, String barcode) {
         itemDao.create(Item.builder()
                 .name(itemName)
@@ -89,6 +97,7 @@ public class ItemServiceImpl {
                 .build());
     }
 
+    @Override
     @Transactional()
     public void updateItemData(Integer itemId, String itemName, String article, String barcode)
             throws NoDataFoundById {

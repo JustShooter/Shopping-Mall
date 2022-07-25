@@ -7,6 +7,8 @@ import by.it.academy.justshooter.dto.ShopDto;
 import by.it.academy.justshooter.dto.ShopOwnerDto;
 import by.it.academy.justshooter.services.AdminServiceImpl;
 import by.it.academy.justshooter.services.ShopServiceImpl;
+import by.it.academy.justshooter.services.api.AdminService;
+import by.it.academy.justshooter.services.api.ShopService;
 import by.it.academy.justshooter.util.ParamUtils;
 
 import javax.servlet.ServletException;
@@ -28,8 +30,8 @@ public class ShopsServlet extends HttpServlet {
         if (null == action) {
             action = "";
         }
-        ShopServiceImpl shopService = new ShopServiceImpl();
-        AdminServiceImpl adminService = new AdminServiceImpl();
+        ShopService shopService = new ShopServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         Integer shopId = ParamUtils.getIntegerParam(request, SHOP_ID);
         switch (action) {
             case (NEW):
@@ -68,7 +70,7 @@ public class ShopsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AdminServiceImpl adminService = new AdminServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         Integer shopId = ParamUtils.getIntegerParam(request, SHOP_ID);
         String shopName = ParamUtils.getStringParam(request, SHOP_NAME);
         Integer shopLocationId = ParamUtils.getIntegerParam(request, SHOP_LOCATION);
@@ -113,7 +115,7 @@ public class ShopsServlet extends HttpServlet {
 
     }
 
-    private void getDataForShop(HttpServletRequest request, ShopServiceImpl shopService, AdminServiceImpl adminService) {
+    private void getDataForShop(HttpServletRequest request, ShopService shopService, AdminService adminService) {
         List<LocationDto> freeLocations = adminService.getFreeLocations();
         List<ShopOwnerDto> shopOwnerList = adminService.getAllShopOwners();
         List<CategoryDto> categoryList = shopService.getAllCategories();

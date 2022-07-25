@@ -25,19 +25,21 @@ import by.it.academy.justshooter.mapper.AddressMapper;
 import by.it.academy.justshooter.mapper.CategoryMapper;
 import by.it.academy.justshooter.mapper.LocationMapper;
 import by.it.academy.justshooter.mapper.ShopOwnerMapper;
+import by.it.academy.justshooter.services.api.AdminService;
 
 import javax.transaction.Transactional;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AdminServiceImpl {
+public class AdminServiceImpl implements AdminService {
     private final LocationDao locationDao = new LocationDaoImpl();
     private final ShopOwnerDao shopOwnerDao = new ShopOwnerDaoImpl();
     private final ShopDao shopDao = new ShopDaoImpl();
     private final AddressDao addressDao = new AddressDaoImpl();
     private final CategoryDao categoryDao = new CategoryDaoImpl();
 
+    @Override
     public void createNewLocation(String shopNumber, Integer floor, String description) {
         locationDao.create(Location.builder()
                 .shopNumber(shopNumber)
@@ -46,6 +48,7 @@ public class AdminServiceImpl {
                 .build());
     }
 
+    @Override
     public Integer createNewAddress(String city,
                                     String streetType,
                                     String street,
@@ -61,6 +64,7 @@ public class AdminServiceImpl {
         return address.getId();
     }
 
+    @Override
     @Transactional()
     public void createNewShopOwner(String companyName, Integer companyAddressId) throws NoDataFoundById {
         shopOwnerDao.create(ShopOwner.builder()
@@ -69,6 +73,7 @@ public class AdminServiceImpl {
                 .build());
     }
 
+    @Override
     @Transactional()
     public void createNewShop(String shopName, Integer shopOwnerId, Integer locationId, Integer categoryId) throws NoDataFoundById {
         shopDao.create(Shop.builder()
@@ -80,6 +85,7 @@ public class AdminServiceImpl {
     }
 
 
+    @Override
     public List<LocationDto> getFreeLocations() {
         return locationDao.getFreeLocations()
                 .stream()
@@ -87,6 +93,7 @@ public class AdminServiceImpl {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public List<ShopOwnerDto> getAllShopOwners() {
         return shopOwnerDao
                 .findAll()
@@ -95,6 +102,7 @@ public class AdminServiceImpl {
                 .collect(Collectors.toList());
     }
 
+    @Override
     @Transactional()
     public boolean updateShopData(Integer shopId,
                                   String shopName,
@@ -119,10 +127,12 @@ public class AdminServiceImpl {
         return shop.equals(update);
     }
 
+    @Override
     public void deleteShopById(Integer shopId) throws NoDataFoundById {
         shopDao.deleteById(shopId);
     }
 
+    @Override
     public List<AddressDto> getAllAddresses() {
         return addressDao.findAll()
                 .stream()
@@ -130,6 +140,7 @@ public class AdminServiceImpl {
                 .collect(Collectors.toList());
     }
 
+    @Override
     @Transactional()
     public void deleteShopOwnerById(Integer shopOwnerId) throws NoDataFoundById {
         ShopOwner shopOwner = shopOwnerDao.findOne(shopOwnerId);
@@ -140,10 +151,12 @@ public class AdminServiceImpl {
         }
     }
 
+    @Override
     public ShopOwnerDto getShopOwnerById(Integer shopOwnerId) throws NoDataFoundById {
         return ShopOwnerMapper.mapFrom(shopOwnerDao.findOne(shopOwnerId));
     }
 
+    @Override
     @Transactional()
     public void updateShopOwnerData(Integer shopOwnerId, String companyName, Integer companyAddressId) throws NoDataFoundById {
         ShopOwner shopOwner = shopOwnerDao.findOne(shopOwnerId);
@@ -157,14 +170,17 @@ public class AdminServiceImpl {
         shopOwnerDao.update(shopOwner);
     }
 
+    @Override
     public LocationDto getLocationById(Integer locationId) throws NoDataFoundById {
         return LocationMapper.mapFrom(locationDao.findOne(locationId));
     }
 
+    @Override
     public void deleteLocationById(Integer locationId) throws NoDataFoundById {
         locationDao.deleteById(locationId);
     }
 
+    @Override
     public List<LocationDto> getAllLocations() {
         return locationDao.findAll()
                 .stream()
@@ -173,6 +189,7 @@ public class AdminServiceImpl {
                 .collect(Collectors.toList());
     }
 
+    @Override
     @Transactional()
     public void updateLocation(Integer locationId,
                                String shopNumber,
@@ -191,14 +208,17 @@ public class AdminServiceImpl {
         locationDao.update(location);
     }
 
+    @Override
     public CategoryDto getCategoryById(Integer categoryId) throws NoDataFoundById {
         return CategoryMapper.mapFrom(categoryDao.findOne(categoryId));
     }
 
+    @Override
     public void deleteCategoryById(Integer categoryId) throws NoDataFoundById {
         categoryDao.deleteById(categoryId);
     }
 
+    @Override
     public List<CategoryDto> getAllCategories() {
         return categoryDao.findAll()
                 .stream()
@@ -207,6 +227,7 @@ public class AdminServiceImpl {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public void createNewCategory(String categoryName, String description) {
         categoryDao.create(Category.builder()
                 .name(categoryName)
@@ -214,6 +235,7 @@ public class AdminServiceImpl {
                 .build());
     }
 
+    @Override
     @Transactional()
     public void updateCategoryData(Integer categoryId, String categoryName, String description)
             throws NoDataFoundById {

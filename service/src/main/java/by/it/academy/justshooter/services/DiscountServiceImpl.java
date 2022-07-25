@@ -1,4 +1,6 @@
 package by.it.academy.justshooter.services;
 
-public class DiscountServiceImpl {
+import by.it.academy.justshooter.services.api.DiscountService;
+
+public class DiscountServiceImpl implements DiscountService {
 }

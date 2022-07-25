@@ -3,6 +3,7 @@ package by.it.academy.justshooter.servlet;
 import by.it.academy.justshooter.dto.CategoryDto;
 import by.it.academy.justshooter.dto.ShopDto;
 import by.it.academy.justshooter.services.ShopServiceImpl;
+import by.it.academy.justshooter.services.api.ShopService;
 import by.it.academy.justshooter.util.ParamUtils;
 
 import javax.servlet.ServletException;
@@ -19,7 +20,7 @@ public class ShopsInCategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Integer categoryId = ParamUtils.getIntegerParam(request, "category");
-        ShopServiceImpl shopService = new ShopServiceImpl();
+        ShopService shopService = new ShopServiceImpl();
         if (null != categoryId) {
             List<ShopDto> shopsInCategory = shopService.getShopsByCategory(categoryId);
             request.setAttribute("shopsInCategory", shopsInCategory);

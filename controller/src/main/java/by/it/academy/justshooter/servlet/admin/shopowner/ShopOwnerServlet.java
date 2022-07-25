@@ -5,6 +5,7 @@ import by.it.academy.justshooter.dto.AddressDto;
 import by.it.academy.justshooter.dto.ShopOwnerDto;
 import by.it.academy.justshooter.entity.enums.StreetType;
 import by.it.academy.justshooter.services.AdminServiceImpl;
+import by.it.academy.justshooter.services.api.AdminService;
 import by.it.academy.justshooter.util.ParamUtils;
 
 import javax.servlet.ServletException;
@@ -27,7 +28,7 @@ public class ShopOwnerServlet extends HttpServlet {
         if (null == action) {
             action = "";
         }
-        AdminServiceImpl adminService = new AdminServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         Integer shopOwnerId = ParamUtils.getIntegerParam(request, SHOP_OWNER_ID);
         switch (action) {
             case (NEW):
@@ -63,7 +64,7 @@ public class ShopOwnerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AdminServiceImpl adminService = new AdminServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
         String companyName = ParamUtils.getStringParam(request, "companyName");
         Integer shopOwnerId = ParamUtils.getIntegerParam(request, SHOP_OWNER_ID);
         Integer companyAddressId = ParamUtils.getIntegerParam(request, "companyAddress");
@@ -101,7 +102,7 @@ public class ShopOwnerServlet extends HttpServlet {
         response.sendRedirect("/admin/ShopOwners");
     }
 
-    private void addAllAddressesAndStreetTypesToAttribute(HttpServletRequest request, AdminServiceImpl adminService) {
+    private void addAllAddressesAndStreetTypesToAttribute(HttpServletRequest request, AdminService adminService) {
         List<AddressDto> allAddresses = adminService.getAllAddresses();
         StreetType[] streetTypes = StreetType.values();
         request.setAttribute(ALL_ADDRESSES, allAddresses);

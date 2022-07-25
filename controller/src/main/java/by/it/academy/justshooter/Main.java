@@ -6,6 +6,8 @@ import by.it.academy.justshooter.dto.PriceDto;
 import by.it.academy.justshooter.dto.ShopDto;
 import by.it.academy.justshooter.services.ItemServiceImpl;
 import by.it.academy.justshooter.services.ShopServiceImpl;
+import by.it.academy.justshooter.services.api.ItemService;
+import by.it.academy.justshooter.services.api.ShopService;
 
 import java.util.List;
 import java.util.Map;
@@ -14,8 +16,8 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        ShopServiceImpl shopService = new ShopServiceImpl();
-        ItemServiceImpl itemService = new ItemServiceImpl();
+        ShopService shopService = new ShopServiceImpl();
+        ItemService itemService = new ItemServiceImpl();
         List<ShopDto> allShops = shopService.getAllShops();
         Map<ShopDto, Map<ItemDto, Map<PriceDto, DiscountDto>>> collect = allShops.stream()
                 .collect(Collectors.
