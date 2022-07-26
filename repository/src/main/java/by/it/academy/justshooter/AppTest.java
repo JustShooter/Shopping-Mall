@@ -90,7 +90,15 @@ public class AppTest {
 */
       /* shopOwnerDao.deleteById(12);*/
 
-        List<Address> all = addressDao.findAll();
-        System.out.println(all);
+        ShopItemPriceDiscountDao discountDao = new ShopItemPriceDiscountDaoImpl();
+        List<ShopItemPriceDiscount> discountGreaterThan = discountDao.getShopItemPriceDiscountListByDiscountEquals(33);
+        for (ShopItemPriceDiscount discount : discountGreaterThan) {
+            System.out.println(discount.getShop());
+            System.out.println(discount.getItem());
+            System.out.println(discount.getPrice());
+            System.out.println(discount.getDiscount());
+        }
+
+
     }
 }
